@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
           // Usuário mockado com CPF incluído
           return {
             id: "1",
-            name: "Gabriel Alves",
+            name: "Bruno Durão",
             email: "cliente@dap.com",
             cpf: "123.456.789-00", // <-- AQUI!
             image: null,

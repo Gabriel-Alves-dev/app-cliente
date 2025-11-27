@@ -1,14 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -47,75 +39,6 @@ export function ProcessosTable() {
 
   return (
     <div className="space-y-4">
-
-      {/* Desktop */}
-      <div className="hidden md:block overflow-x-auto">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Número</TableHead>
-              <TableHead>Vara</TableHead>
-              <TableHead>Comarca</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Última movimentação</TableHead>
-            </TableRow>
-          </TableHeader>
-
-          <TableBody>
-            {processosMock.map((p) => (
-              <tbody key={p.numero}>
-                {/* Linha principal */}
-                <TableRow
-                  className="cursor-pointer hover:bg-gray-100 transition"
-                  onClick={() => toggle(p.numero)}
-                >
-                  <TableCell>{p.numero}</TableCell>
-                  <TableCell>{p.vara}</TableCell>
-                  <TableCell>{p.comarca}</TableCell>
-                  <TableCell>
-                    <Badge variant="outline">{p.status}</Badge>
-                  </TableCell>
-                  <TableCell className="text-right">{p.ultimaMovimentacao}</TableCell>
-                </TableRow>
-
-                {/* Linha expansível com animação */}
-                <AnimatePresence>
-                  {open === p.numero && (
-                    <TableRow className="bg-gray-50">
-                      <TableCell colSpan={5} className="p-0">
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="p-4 space-y-2">
-                            <h3 className="font-semibold text-gray-800">
-                              Andamento do processo
-                            </h3>
-
-                            <ul className="space-y-1">
-                              {p.andamentos.map((a) => (
-                                <li
-                                  key={a.data}
-                                  className="text-sm text-gray-700 border-b pb-1"
-                                >
-                                  <strong>{a.data}:</strong> {a.descricao}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </motion.div>
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </AnimatePresence>
-              </tbody>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
 
       {/* Mobile cards */}
       <div className="md:hidden space-y-3">
