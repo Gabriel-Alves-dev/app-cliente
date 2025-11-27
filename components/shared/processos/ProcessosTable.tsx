@@ -41,7 +41,7 @@ export function ProcessosTable() {
     <div className="space-y-4">
 
       {/* Mobile cards */}
-      <div className="md:hidden space-y-3">
+      <div className="space-y-3">
         {processosMock.map((p) => (
           <div key={p.numero} className="border rounded-lg bg-white shadow-sm">
             <button
